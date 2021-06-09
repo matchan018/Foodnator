@@ -11,7 +11,8 @@ question = []
 
 while True:
     route = []
-
+    
+    #リストの取得
     with open("list1.txt",'r') as f:
         iarray_A = f.read().splitlines()
     with open("list2.txt",'r') as f:
@@ -33,6 +34,7 @@ while True:
     count = 0
     print("はい...y/いいえ...nで答えてください")
     
+    #ノードへの重みづけ
     for i in range(kaiso):
         if que_list[count*2 + 1] == "null":break
         print(que_list[count])
@@ -59,6 +61,7 @@ while True:
     print("この料理はどうですか？これにする！...y/気分に合わない...n")
     value = input()
     
+    #ノードの重みの変更
     if value == "y":
         rev = count
         for i in range(len(A_list)):
@@ -84,6 +87,8 @@ while True:
             number = int(input())
             rev1 = count
             rev2 = number
+            
+            #ノードの重みの変更
             for i in range(len(A_list)):
                 #YNcheck1=(rev1+1)%2
                 YNcheck2=(rev2+1)%2
@@ -101,6 +106,8 @@ while True:
         elif value == "n":
             print("今他に食べたい料理はありますか？はい...y/いいえ...n")
             other = input()
+            
+            #料理と質問の追加
             if other == "y":
                 print("食べたい料理を教えてください")
                 tabetai = input()
